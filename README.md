@@ -48,13 +48,14 @@ Discuz!Q 组件支持 0 配置部署，也就是可以直接通过配置文件�
 
 app: appDemo
 stage: dev
-component: discuzq
+component: discuz-q
 name: discuzqDemo
 
 inputs:
-  src:
-    exclude:
-      - .env
+ region: ap-shanghai
+ src:
+   exclude:
+     - .env
 ```
 
 点此查看[全量配置及配置说明](https://github.com/serverless-components/tencent-discuzq/tree/master/docs/configure.md)
