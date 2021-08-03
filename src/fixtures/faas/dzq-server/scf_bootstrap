@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+export PORT=9000
+
+export WWW_ROOT_DIR=/mnt/discuzq
+export DZQ_HANDLER=handler.php
+
+export PATH=/opt/bin:$PATH
+export LD_LIBRARY_PATH=/opt/lib/:$LD_LIBRARY_PATH
+export PHP_INI_SCAN_DIR=/opt/etc/php.d
+
+cd $WWW_ROOT_DIR
+/opt/bin/php -S 0.0.0.0:9000 $DZQ_HANDLER

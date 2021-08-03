@@ -1,0 +1,928 @@
+@charset "utf-8";
+/**
+  后台页面全部样式
+  根据页面、类名一一划分
+ */
+
+@import "../common/index";
+@import "../../../../../static/css/admin/discuzQfont.css";
+
+/**
+  公共样式
+ */
+.marT15 {
+  margin-top: 15PX;
+}
+/*表格图标和内容*/
+.iconfont.table-icon {
+  font-size: 40PX;
+  vertical-align: middle;
+  margin-right: 10PX;
+}
+.pay-set-type-box,.other-service-set-box {
+  display: flex;
+  align-items: center;
+  .table-con-box {
+    //width:calc(100% - 55PX);
+    display: inline-block;
+    vertical-align: middle;
+    p {
+      font-size: 12PX;
+      font-weight: 500;
+      color: rgba(144, 147, 153, 1);
+      line-height: 14PX;
+    }
+    p:first-of-type {
+      font-size: 14PX;
+      font-weight: 600;
+      color: $titleColor;
+      line-height: 20PX;
+    }
+    p:last-of-type {
+      margin-top: 7PX;
+    }
+  }
+  .iconucenter {
+    background: #FF9501;
+    color: #fff;
+    width: 40PX;
+    height: 40PX;
+    font-size: 14PX;
+    line-height: 40PX;
+    text-align: center;
+    border-radius: 50%;
+  }
+}
+.other-service-set-box {
+  margin-top: 15PX;
+  .el-table__body {
+    width:100%;
+  }
+  .iconweizhi1 {
+    background-color: $blue;
+    color: #fff;
+    border-radius: 50%;
+  }
+
+}
+
+.icon-add {
+  font-size: 15.5PX !important;
+}
+
+/**
+  home页面样式
+ */
+.home-box {
+  .home-card-box {
+    .section {
+      color: $titleColor;
+      line-height: 20PX;
+      &:not(:last-child) {
+        margin-bottom: 20PX;
+      }
+      span {
+        margin-right: 20PX;
+        display: inline-block;
+      }
+    }
+    .section-title {
+      width: 150PX;
+      margin-right: 0 !important;
+    }
+    .section-title-right {
+      width: 300PX;
+      a {
+        color: #FF0000;
+      }
+      span {
+        margin: 0;
+      }
+    }
+    .pending-p {
+      display: inline-block;
+      margin-right: 20PX;
+    }
+  }
+
+  .home-card__footer {
+    a {
+      margin-right: 20PX;
+      color: $main;
+      //font-size: $contFontSize;
+    }
+  }
+}
+
+/**
+  站点设置 - 站点信息
+ */
+.site-set-box {
+//   /*.site-set__logo{
+//     i{
+//       height: 15PX;
+//       width: 1PX;
+//       background-color: $borderColor;
+//       display: inline-block;
+//       vertical-align: text-top;
+//       margin: 0 20PX;
+//     }
+//   }*/
+// }
+  /*头像上传样式*/
+  .avatar-box {
+    display: flex;
+    width: 167PX;
+    height: 167PX;
+  }
+  .avatar-somer-box {
+    margin-right: 87PX;
+  }
+  .avatar-uploader .el-upload {
+    width: 140PX;
+    height: 140PX;
+    background-color: #F9F9F9;
+    border: 1PX dashed #d9d9d9;
+    border-radius: 6PX;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .avatar-uploader .el-upload:hover {
+    border-color: $main;
+  }
+  .avatar-uploader-icon {
+    font-size: 28PX;
+    color: #8c939d;
+    width: 140PX;
+    height: 140PX;
+    line-height: 140PX;
+    text-align: center;
+  }
+  .el-icon-circle-plus-outline {
+    display: block;
+    width: 48PX;
+    height: 48PX;
+    font-size: 48PX;
+    margin: 11PX auto 0;
+    color: #D5D8DE;
+  }
+  .avatar-logo {
+    display: block;
+    font-size:14PX;
+    font-weight:600;
+    margin: 8PX auto 0;
+    color:rgba(151,156,169,1);
+    line-height:20PX;
+  }
+  .avatar-pm {
+    margin: 4PX auto 0;
+    display: block;
+    font-size:8PX;
+    font-weight:400;
+    white-space:nowrap;
+    color:rgba(151,156,169,1);
+    line-height:14PX;
+  }
+  .avatar-btn {
+    padding: 0;
+    margin:11PX 0 0 56PX;
+  }
+  .avatar {
+    width: 140PX;
+    height: 140PX;
+    display: block;
+    position: relative;
+  }
+  .avatar-LogoImage {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+  .avatar-LogoImage-img {
+    height: 100%;
+    position: absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    margin: auto;
+  }
+  .el-button--text {
+    padding-bottom: 0;
+  }
+
+  .proportion-box {
+    width: 45%;
+    display: inline-block;
+    span {
+      height: 20PX;
+      display: inline-block;
+      white-space: pre-wrap;
+      margin-right: 10PX;
+    }
+
+    .el-input {
+      width: 120PX;
+      height: 36PX;
+    }
+    .marL10 {
+      margin-left: 10PX;
+    }
+
+    margin-right: 5PX;
+  }
+}
+
+/*
+* 站点设置  - 主题设置
+*/
+.site-theme-box{
+  padding: 20PX;
+  font-size: 14PX;
+  color: #333;
+  .site-theme-head{
+    margin-bottom: 10PX;
+  }
+  .site-theme-content{
+    display: flex;
+    padding-bottom: 20PX;
+    margin-bottom: 20PX;
+    border-bottom: 1PX solid #eee;
+    .left{
+      flex: 1;
+      .el-radio{
+        position: relative;
+        width: 300PX;
+        height: 20PX;
+        padding-top: 255PX;
+        text-align: center;
+        overflow: hidden;
+        .theme-img{
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 240px;
+          object-fit: cover;
+        }
+      }
+    }
+    .right{
+      flex-basis: 400PX;
+      align-self: center;
+      line-height: 20PX;
+      text-indent: 2em;
+      letter-spacing: 2PX;
+    }
+  }
+  .preview-box{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: rgba(0,0,0,.7);
+    width: 100%;
+    height: 100%;
+    .preview-img-wrap{
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      width: 100%;
+      height: calc(100% - 80PX);
+      overflow: auto;
+    }
+    .preview-img{
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.card-radio-con .card-row-lf {
+  padding-top: 8PX;
+  line-height: 20PX;
+}
+
+.elinput{
+  margin: 0 10PX;
+}
+
+/*
+* 站点设置  - 功能设置
+*/
+.site-function-set-box {
+
+  .card-row-box .card-row-lf{
+      padding-top: 8PX;
+      line-height: 20PX;
+    }
+
+  .publishing-title {
+    .card-row-rf span {
+      color:#303133;
+    }
+    &.other {
+      margin-top: 30px;
+    }
+  }
+
+  .el-checkbox .el-checkbox__inner {
+    border-color:#666;
+  }
+
+  .el-button {
+    margin:30PX 0;
+  }
+}
+
+/*
+* 站点设置  - 首页数据排序配置
+*/
+.site-sort-set-box{
+  .sort-desc{
+    line-height:20PX;
+    padding:20PX 0;
+    color:$titleColor;
+  }
+  .el-card{
+    border:none;
+    .sort-class-item{
+      margin-top:10PX;
+      padding-bottom:10PX;
+      border-bottom:1PX solid #EBEEF5;
+      .el-checkbox{
+        width:30%;
+      }
+    }
+  }
+  .card-box{
+    .card-box__header{
+      padding:10PX 0;
+      border-bottom:1PX solid #e5e5e5;
+    }
+    .card-row-box {
+      .card-row-lf {
+        position:relative;
+        .sort-item-wrap{
+          display: flex;
+          justify-content:space-between;
+          align-items:center;
+          .el-input{
+            width:224PX;
+          }
+        }
+        .el-checkbox{
+          color:$descColor;
+        }
+        .is-checked{
+          color:$selectFontColor;
+        }
+        .sort-select-btn{
+          position: absolute;
+          left:100%;
+          top:0;
+          width:100PX;
+          line-height:40PX;
+          padding-left:14PX;
+          color:$selectColor;
+          cursor:pointer;
+        }
+      }
+    }
+  }
+  // 设置深色底边框
+  .sort-border-bottom{
+    border-color:#e5e5e5;
+    margin-bottom:20PX;
+    .el-select{
+      overflow: hidden;
+      .el-input__suffix{
+        display:none;
+        width:0;
+      }
+    }
+  }
+  // 用户、话题选择
+  .select-box{
+    .el-tag{
+      margin:10PX;
+    }
+    .recommend-tag{
+      cursor: pointer;
+    }
+    .el-button{
+      margin-top:30PX;
+    }
+  }
+  // 智能排序开关
+  .sort-switch-box{
+    display:flex;
+    justify-content: flex-start;
+    align-items:center;
+    margin-bottom:30PX;
+    .sort-switch{
+      flex-basis:180PX;
+    }
+    .el-switch{
+      margin-left:20PX;
+      transform: scale(1.5);
+    }
+    .sort-switch-desc{
+      line-height:20PX;
+      color:$descColor;
+    }
+  }
+}
+
+/**
+  全局 - 操作日志
+ */
+.operation-log-box{
+  padding:20PX 0;
+  .log-search{
+    display:flex;
+    align-items:center;
+    padding-bottom:10PX;
+    margin-bottom:20PX;
+    border-bottom: 1PX solid #E5E5E5;
+    .log-search-item{
+      display:flex;
+      align-items:center;
+      width:22%;
+      margin-right:15PX;
+    }
+    .log-search-time{
+      width:40%;
+      color:$commentColor;
+      .line{
+        width:30PX;
+        height:1px;
+        margin:0 10PX;
+        background:#333;
+      }
+    }
+    .log-search-title{
+      width:70PX;
+    }
+    .el-input{
+      width:160PX;
+    }
+    .el-button{
+      width:80PX;
+    }
+  }
+}
+
+/**
+  注册设置
+ */
+// .sign-up-set-box{
+
+// }
+.registration-btn {
+  margin-left: 14PX;
+  color: #3571A5;
+  cursor: pointer;
+}
+.register-option-box {
+  .has-gutter {
+    tr {
+      th {
+        .cell {
+          padding-left: 18PX;
+          box-sizing: border-box;
+        }
+      }
+    }
+  }
+
+  .el-table__body {
+    tr {
+      position: relative;
+      td {
+        vertical-align: top;
+        .cell {
+          text-align: center;
+          position: relative;
+          overflow: visible;
+          .register-option-table__type {
+            position: relative;
+            z-index: 10;
+            width: 300PX;
+            margin-top: 15px;
+            .register-option-table__son {
+              width: 300PX;
+              .el-textarea__inner {
+                width: 266PX;
+                height: 120PX;
+              }
+            }
+          }
+          .register-option-table__enable {
+            text-align: left;
+            .register-option-table__field {
+              margin-left: 26PX;
+            }
+          }
+          .register-option-table__detele {
+            text-align: left;
+          }
+        }
+      }
+      .el-table-column--selection {
+        padding-top: 20PX;
+      }
+    }
+  }
+  .egister-option-btn {
+    margin-left: 66PX;
+    width: 85PX;
+    text-align: center;
+  }
+  .el-icon-circle-plus-outline {
+    color: #336699;
+    font-size: 15PX;
+    cursor: pointer;
+  }
+  .egister-option-increase {
+    color: #336699;
+    font-size: 14PX;
+    cursor: pointer;
+    font-weight: 400;
+  }
+  .register-option__button {
+    background: #fff;
+    color: #336699;
+  }
+}
+
+.delete-field {
+  color: #3571A5;
+  cursor: pointer;
+}
+/**
+  附件设置
+ */
+// .annex-set-box{
+
+// }
+
+/**
+  水印设置
+ */
+.posi-list {
+  overflow: hidden;
+  width: 370PX;
+  .posi-child {
+    float: left;
+    width: 100PX;
+    height: 48PX;
+    margin: 0 20PX 20PX 0;
+    font-size: 14PX;
+    color: #979ca9;
+    line-height: 46PX;
+    text-align: center;
+    border: 1PX solid #dcdfe6;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+  .posiactive {
+    color: $main;
+    background: #f2faff;
+    border: 1PX solid $main;
+  }
+}
+
+/**
+  第三方登录设置
+ */
+.worth-mention-box {
+  .worth-mention__default {
+    padding-top: 15PX;
+  }
+}
+
+/*
+  第三方登录设置配置
+*/
+.worth-mentioning-config-h5-box {
+  .random-btn {
+    color: $main !important;
+    cursor: pointer;
+  }
+}
+
+/**
+  内容过滤设置
+ */
+.content-filter-set-box {
+  .content-filter-set__search {
+    .el-cascader__search-input {
+      width: 60%;
+      max-width: 440PX;
+      margin: 0 14PX 0 0;
+    }
+    &-button {
+      width: 20%;
+      max-width: 68PX;
+    }
+  }
+
+  .content-filter-set-main {
+    .list-set-box {
+      margin: 15PX 0;
+      span {
+        color: $main;
+        margin-right: 40PX;
+        cursor: pointer;
+      }
+    }
+
+    /*.content-filter-set-table-add{
+      width: 100%;
+      height: 45PX;
+      border-bottom: 1PX solid #EBEEF5;
+      line-height: 45PX;
+      display: flex;
+      align-items: center;
+      p{
+        margin-left: 65PX;
+        color: $main;
+        cursor: pointer;
+        //font-size:14PX;
+        //font-weight:400;
+      }
+    }*/
+  }
+
+  /*.batch-set-box{
+
+    .el-radio-group{
+      margin-top: 15PX;
+
+      div:last-of-type{
+        margin-top: 22PX;
+      }
+
+    }
+
+    h2{
+      font-size:18PX;
+      color:$titleColor;
+      line-height:25PX;
+      margin-bottom: 11PX;
+    }
+    p{
+      color:$commentColor;
+      line-height:28PX;
+    }
+
+  }*/
+}
+
+/*
+  批量添加本地敏感词
+*/
+.add-sensitive-words-box {
+  .el-radio-group {
+    margin-top: 15PX;
+
+    div:last-of-type {
+      margin-top: 22PX;
+    }
+  }
+
+  h2 {
+    font-size: 18PX;
+    color: $titleColor;
+    line-height: 25PX;
+    margin-bottom: 11PX;
+  }
+  p {
+    color: $commentColor;
+    line-height: 28PX;
+  }
+}
+
+/**
+  支付设置
+ */
+.pay-set-box {
+  .pay-set__default {
+    margin-top: 15PX;
+  }
+}
+.card-pay {
+  .card-row-lf {
+    padding-top: 10PX !important;
+  }
+  .card-row-rf {
+    padding-top: 0 !important;
+  }
+}
+.card-pays {
+  .card-row-rf {
+    padding-top: 0 !important;
+  }
+}
+/**
+  用户管理
+ */
+.user-manage-set-box {
+  margin-top: 15PX;
+
+  .user-manage-set-table-add {
+    width: 100%;
+    height: 45PX;
+    border-bottom: 1PX solid #ebeef5;
+    line-height: 45PX;
+    display: flex;
+    align-items: center;
+    p {
+      margin-left: 65PX;
+      color: $main;
+      span {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+/**
+  角色管理
+ */
+.role-manage-set-box {
+  margin-top: 15PX;
+
+  /*.role-manage-set-table-add{
+    width: 100%;
+    height: 45PX;
+    border-bottom: 1PX solid #EBEEF5;
+    line-height: 45PX;
+    display: flex;
+    align-items: center;
+    p{
+      margin-left: 65PX;
+      color: $main;
+      //font-size:14PX;
+      //font-weight:400;
+      span{
+        cursor: pointer;
+      }
+    }
+  }*/
+
+  /*.role-editing-box{
+
+    .card-box{
+      border-bottom: 0;
+    }
+
+    .role-table{
+      width: 100%;
+      tr{
+        width: 100%;
+        border-bottom: 1PX solid #EBEEF5;
+
+        th{
+          background-color: #FAFAFA;
+          padding: 12PX 14PX 12PX 17PX;
+          line-height: 23PX;
+        }
+
+        td{
+          vertical-align: middle;
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          padding: 12PX 17PX 12PX 17PX;
+          line-height: 23PX;
+          margin-right: 68PX;
+        }
+      }
+    }
+  }*/
+}
+// .record-bottom {
+//   margin-top: 30PX;
+// }
+/*
+  角色管理-权限编辑
+*/
+.role-editing-box {
+  .card-box {
+    border-bottom: 0;
+  }
+
+  .role-table {
+    width: 100%;
+    tr {
+      width: 100%;
+      border-bottom: 1PX solid #ebeef5;
+
+      th {
+        background-color: #fafafa;
+        padding: 15PX 14PX 15PX 17PX;
+        line-height: 23PX;
+      }
+
+      td {
+        vertical-align: middle;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 15PX 17PX 15PX 17PX;
+        line-height: 23PX;
+        margin-right: 68PX;
+      }
+    }
+  }
+}
+
+.span-right {
+  .card-row-rf {
+    padding: 0 !important;
+  }
+}
+.system-notice {
+  .system-title {
+    color: #303133;
+    font-size: 16PX;
+    margin-top : 17PX;
+    font-weight: 600;
+  }
+}
+.applets {
+  display: flex;
+  flex: 2;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20PX;
+}
+.applets-input {
+  // padding-left: 152PX;
+}
+.applet-keyst {
+  width: 134PX;
+}
+.applets-title {
+  width:134PX;
+}
+.applets-titles {
+  width:134PX;
+  // margin-left:72PX;
+}
+.iconicon_delect {
+  // width: 40Px;
+  // height: 40Px;
+  font-size: 15.5PX !important;
+  color: #336699;
+  padding-left: 7PX;
+}
+.table-cont-add-box {
+  border-bottom: 0PX !important;
+}
+.table-cont-add-box p {
+  margin-left: 0PX !important;
+}
+.applets-box {
+  background:#F9F9F9;
+}
+.table-add {
+  padding-left:154PX;
+}
+.applets-box-content {
+  padding: 15PX 0 24PX 12PX;
+}
+.applets-radio {
+  width: 100%;
+}
+.notice_type_error {
+  color: red;
+  cursor: pointer;
+}
+.notice_error_info {
+  float: left;
+  width: 100%;
+}
+.notice_error_title {
+  border: 1px solid #EDEDEE;
+  background-color: #F2F2F3;
+  margin-right: 10PX;
+  margin-bottom: 5PX;
+  text-align: center;
+  width: 20%;
+  float: left;
+}
+.notice_error_message {
+  margin-bottom: 10PX;
+  float: left;
+  width: 75%;
+  overflow: auto;
+}

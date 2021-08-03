@@ -1,0 +1,13 @@
+app: appDemo
+stage: dev
+component: discuz-q
+name: discuzqDemo
+
+inputs:
+ region: ap-shanghai
+ src:
+   exclude:
+     - .env
+
+
+
