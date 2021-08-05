@@ -1,0 +1,384 @@
+/*用户导航各个页面*/
+
+@import "../common/index";
+@import "../../../../../static/css/admin/discuzQfont.css";
+
+
+/*
+  公共样式
+*/
+.details-wallet-header{
+  display: flex;
+  padding: 15PX 0;
+  border-bottom: 1PX solid $contBorderColor;
+
+  &__name{
+    color: $commentColor;
+  }
+
+  &__i{
+    width: 1PX;
+    height: 16PX;
+    display: inline-block;
+    background-color: $splitLine;
+    margin: 0 24PX;
+  }
+
+  .details-wallet-header__details{
+    color: $main;
+  }
+
+  .details-wallet-header__wallet{
+    color: $main;
+  }
+
+  span{
+    margin-right: 20PX;
+    color: $descColor;
+    cursor: pointer;
+  }
+
+}
+
+
+/*
+  用户管理
+*/
+.user-manage-box{
+
+  .el-button{
+    margin-right: 40PX;
+  }
+  .el-select{
+    width: 100%;
+  }
+}
+
+
+/*
+  用户搜索结果
+*/
+.user-search-list-box{
+
+  .user-search-list__table{
+
+    .user-search-list__table-title{
+      padding: 15PX 0;
+      display: flex;
+      align-items: center;
+      p{
+        margin-right: 40PX;
+        color: $titleColor;
+      }
+
+      .el-button{
+        padding: 0;
+      }
+
+      .el-button+.el-button{
+        margin-left: 20PX;
+      }
+    }
+  }
+
+  .user-search-list__prompt{
+    padding: 15PX 0;
+    h1{
+      margin-bottom: 11PX;
+      font-size: 18PX;
+      font-weight: 400;
+      color: $titleColor;
+    }
+    p{
+      height: 28PX;
+      color:$commentColor;
+    }
+  }
+}
+
+
+/*
+  用户详情
+*/
+.user-details-box{
+
+  /*头像上传样式*/
+  .avatar-uploader .el-upload {
+    border: 1PX dashed #d9d9d9;
+    border-radius: 6PX;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .avatar-uploader .el-upload:hover {
+    border-color: $main;
+  }
+  .avatar-uploader-icon {
+    font-size: 28PX;
+    color: #8c939d;
+    width: 120PX;
+    height: 120PX;
+    line-height: 120PX;
+    text-align: center;
+  }
+  .avatar {
+    width: 120PX;
+    height: 120PX;
+    display: block;
+  }
+
+  /*.user-avatar{
+    //width: 120PX;
+
+  }*/
+
+  .add-site{
+
+    color: $main;
+
+    &:after{
+      content: '，';
+    }
+
+    &:last-of-type{
+      &:after{
+        content: '';
+      }
+    }
+
+    i{
+      color: $titleColor;
+    }
+
+  }
+
+  .el-select{
+    width: 100%;
+  }
+
+  .el-button--text{
+    padding-bottom: 0;
+  }
+
+  .upload-demo {
+    padding: 0;
+    ul {
+      width: 360PX;
+    }
+  }
+
+  .upload-demo-img {
+    .card-box__header {
+      margin-bottom: 0;
+    }
+  }
+
+  .el-upload-list__item {
+    border: #E5E5E5 1PX solid;
+  }
+  .el-upload-list__item.is-success .el-upload-list__item-status-label{
+    display: none;
+  }
+
+  .el-upload-list__item .el-icon-close {
+    display: inline-block;
+  }
+
+  .user-details-box-extend {
+    width: 540PX;
+    line-height: 20PX;
+    word-wrap: break-word;
+    word-break: keep-all;
+    overflow: hidden;
+  }
+}
+
+
+/*
+  钱包
+*/
+.wallet-box{
+
+  .wallet-set-box{
+    display: flex;
+    .el-select{
+      width:40%;
+      margin-right: 10PX;
+
+      .el-input{
+        width: 100%;
+      }
+
+    }
+    .el-input{
+      width: 60%;
+    }
+  }
+}
+
+
+/*
+  用户角色
+*/
+.user-rol-box{
+
+  .user-rol-table{
+    margin-top: 15PX;
+  }
+
+  /*.user-rol-table-add{
+    width: 100%;
+    height: 45PX;
+    border-bottom: 1PX solid #EBEEF5;
+    line-height: 45PX;
+    display: flex;
+    align-items: center;
+    p{
+      margin-left: 65PX;
+      color: $main;
+      span{
+        cursor: pointer;
+      }
+    }
+  }*/
+
+  .el-button+.el-button{
+    margin-left: 20PX;
+  }
+
+}
+
+
+/*
+  用户角色权限设置
+*/
+.rol-permission-box{
+  position: relative;
+  .permission__title{
+    position: absolute;
+    left: 70PX;
+    top: -46PX;
+    line-height: 25PX;
+  }
+  .permission__title span{
+    margin-right: 20PX;
+  }
+  .card-row-box {
+
+    .card-row-rf {
+      padding-top: 0;
+    }
+  }
+  .proportion-box {
+    margin-top: 20PX;
+    .el-input {
+      width: 60%;
+      margin-left: 20PX;
+    }
+  }
+  .user-operate {
+    &__header {
+      position: relative;
+      .scope-action{
+        position: absolute;
+        top: 17PX;
+        left:47%;
+        color: #606266;
+      }
+    }
+    &__title {
+      width: 100%;
+      height: 53PX;
+      background-color: #FAFAFA;
+      display: flex;
+      align-items: center;
+      padding-left: 27PX;
+      box-sizing: border-box;
+    }
+    .card-box {
+      padding-left: 27PX;
+    }
+    .card-row-lf{
+      width: 45%;
+      margin-right: 0;
+    }
+    .card-row-rf{
+      margin-left: -4PX;
+    }
+    .card-box__main {
+      position: relative;
+    }
+  }
+  .hasSelect{
+    .card-row-lf{
+      width: 100%;
+    }
+    .card-row-rf{
+      margin-top: 2PX;
+      margin-left: 24PX;
+    }
+    .card-box__main {
+      position: relative;
+    }
+    .card-row-box {
+      width: 45%;
+    }
+    .el-select,.el-cascader{
+      position: absolute;
+      left: 45%;
+      top: 0;
+      width: 340PX;
+    }
+  }
+  .footer-btn__inner{
+    padding-left: 27PX;
+  }
+}
+.elinput{
+  margin: 0 10PX;
+}
+
+/*
+  用户审核
+*/
+.user-review-box{
+
+  .user-review-table{
+    margin: 15PX 0 15PX 0;
+
+    .el-table th > .cell{
+      padding-left: 17PX;
+    }
+
+    .el-button + .el-button{
+      padding-left: 10PX;
+      padding-right: 20PX;
+    }
+  }
+
+  .footer-btn{
+    .el-button--primary{
+      margin-right: 20PX;
+    }
+
+    .el-button--text{
+      margin-left: 20PX;
+    }
+
+    .footer-btn__box-adopt{
+      margin-left: 20PX;
+      color: #3571A5;
+      cursor: pointer;
+    }
+
+    .el-checkbox {
+      margin-left: 20PX;
+    }
+  }
+
+  .user-review-table__box {
+    .user-review-table__tdbox {
+      padding-left: 7PX;
+    }
+  }
+}
