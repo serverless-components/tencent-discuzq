@@ -2,7 +2,7 @@ name: discuz-q
 version: 0.1.1
 author: Tencent Cloud, Inc.
 org: Tencent Cloud, Inc.
-description: Deploy a serverless discuzq.js application on Tencent SCF and API Gateway.
+description:  DiscuszQ 组件，允许用户创建部署一个 DiscuszQ 实例。
 keywords: tencent, serverless, discuzq
 repo: https://github.com/serverless-components/tencent-discuzq
 readme: https://github.com/serverless-components/tencent-discuzq/tree/master/README.md
