@@ -1,5 +1,5 @@
 name: discuz-q
-version: 0.1.1
+version: 0.1.2
 author: Tencent Cloud, Inc.
 org: Tencent Cloud, Inc.
 description:  DiscuszQ 组件，允许用户创建部署一个 DiscuszQ 实例。
