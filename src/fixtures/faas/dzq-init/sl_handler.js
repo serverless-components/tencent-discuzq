@@ -62,6 +62,9 @@ async function handler(event, context) {
 
     await unzip(downloadZipPath, unzipPath)
 
+    const rmCommand = 'rm -rf ' + downloadZipPath
+    shell.execSync(rmCommand);
+
     const command = 'cp -rf ' + unzipPath + '* ' + targetPath
     shell.execSync(command);
 
