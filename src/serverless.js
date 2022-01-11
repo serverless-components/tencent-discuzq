@@ -18,9 +18,12 @@ const {
   deployLayer,
   removeLayer,
   deployCdn,
-  removeCdn
+  removeCdn,
+  getRequestStatus,
+  asyncInvokeFaas
 } = require('./utils/sdk')
 const DEFAULT_CONFIGS = require('./config')
+const moment = require('moment')
 
 class ServerlessComponent extends Component {
   getCredentials() {
@@ -166,7 +169,8 @@ class ServerlessComponent extends Component {
 
     // 5. 调用 dzq-init 函数，同步函数代码
     console.log(`Start sync discuzq code`)
-    const invokeOutput = await invokeFaas({
+    const startTime = moment().local().add(8, 'h').format('YYYY-MM-DD HH:mm:ss')
+    const invokeRes = await asyncInvokeFaas({
       instance: this,
       inputs,
       name: dzqInitOutput.name,
@@ -182,11 +186,55 @@ class ServerlessComponent extends Component {
       }
     })
 
-    if (invokeOutput.status !== 'success') {
-      throw new ApiError({
-        type: 'API_WORDPRESS_SYNC_FAAS_INVOKE_ERROR',
-        message: `[INIT ERROR]: ${invokeOutput.reason}`
+    // 查询单个请求状态check复制代码是否成功
+    // 考虑函数会出现运行错误重试场景，查询到全部执行失败才判断为最终失败
+    let runFinished = false
+    while (!runFinished) {
+      let currentTime =  moment().local().add(8, 'h').format('YYYY-MM-DD HH:mm:ss')
+      const invokeDetails = await getRequestStatus({
+        instance: this,
+        inputs,
+        functionRequestId: invokeRes,
+        name: dzqInitOutput.name,
+        namespace: dzqInitOutput.namespace,
+        startTime: startTime,
+        endTime: currentTime
       })
+      // console.log(invokeDetails)
+
+      let invokeFailedNum = 0
+      for (let i = 0; i < invokeDetails.TotalCount; ++i) {
+        const requestStatus = invokeDetails.Data[i]
+        if (requestStatus.RetCode === 1) {
+          console.log(`sync discuzq code is running...`)
+          break
+        }
+
+        if (requestStatus.RetCode === 0) {
+          const retMsg = JSON.parse(requestStatus.RetMsg)
+          if (retMsg.status !== 'success') {
+            throw new ApiError({
+              type: 'API_WORDPRESS_SYNC_FAAS_INVOKE_ERROR',
+              message: `[INIT ERROR]: ${retMsg.reason}`
+            })
+          }
+          console.log(`sync discuzq code success...`)
+          runFinished = true
+        }
+
+        if (requestStatus.RetCode === -1) {
+          invokeFailedNum = invokeFailedNum + 1
+        }
+
+        if (invokeFailedNum === invokeDetails.TotalCount) {
+          throw new ApiError({
+            type: 'API_WORDPRESS_SYNC_FAAS_INVOKE_ERROR',
+            message: `[INIT ERROR]: invoke function error`
+          })
+        }
+      }
+      //等待5秒再次查询请求状态
+      await sleep(5000)
     }
 
     // 6. 部署 layer

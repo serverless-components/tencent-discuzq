@@ -73,6 +73,7 @@ const CONFIGS = {
     cfsMountDir: '/mnt',
     timeout: 600,
     memorySize: 1024,
+    asyncRunEnable: true
   },
 
   // dzq-server 函数配置

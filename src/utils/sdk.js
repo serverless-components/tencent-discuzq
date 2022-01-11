@@ -47,6 +47,7 @@ async function deployFaas({ instance, inputs, code, state = {} }) {
     type: inputFaas.type,
     runtime: inputFaas.runtime || DEFAULT_CONFIGS.runtime,
     handler: inputFaas.handler || DEFAULT_CONFIGS.handler,
+    asyncRunEnable: inputFaas.asyncRunEnable || DEFAULT_CONFIGS.asyncRunEnable,
 
     // 支持用户配置
     role: inputFaas.role || '',
@@ -133,11 +134,59 @@ async function invokeFaas({ instance, inputs, name, namespace, parameters }) {
   const { Result } = await scf.invoke({
     functionName: name,
     namespace,
-    clientContext: parameters
+    clientContext: parameters,
+    invocationType: inputs.invocationType|| 'RequestResponse'
   })
 
   try {
-    return JSON.parse(Result.RetMsg)
+    return JSON.parse(Result)
+  } catch (e) {
+    return {
+      status: false,
+      reason: e.message
+    }
+  }
+}
+
+async function asyncInvokeFaas({ instance, inputs, name, namespace, parameters }) {
+  const { __TmpCredentials, CONFIGS } = instance
+  const region = inputs.region || CONFIGS.region
+
+  const scf = new Scf(__TmpCredentials, region)
+  // console.log('________', parameters)
+  const res = await scf.invoke({
+    functionName: name,
+    namespace: namespace,
+    clientContext: parameters,
+    invocationType: "Event",
+  })
+
+  try {
+    return res.RequestId
+  } catch (e) {
+    return {
+      status: false,
+      reason: e.message
+    }
+  }
+}
+
+async function getRequestStatus({ instance, inputs, functionRequestId, name, namespace, startTime, endTime}) {
+  const { __TmpCredentials, CONFIGS } = instance
+  const region = inputs.region || CONFIGS.region
+
+  const scf = new Scf(__TmpCredentials, region)
+  const inputOptions = {
+    functionName: name,
+    namespace: namespace,
+    functionRequestId: functionRequestId,
+    startTime: startTime,
+    endTime: endTime
+  }
+  // console.log(inputOptions)
+  const result  = await scf.scf.getRequestStatus(inputOptions)
+  try {
+    return result
   } catch (e) {
     return {
       status: false,
@@ -788,5 +837,7 @@ module.exports = {
   deployLayer,
   removeLayer,
   deployCdn,
-  removeCdn
+  removeCdn,
+  getRequestStatus,
+  asyncInvokeFaas
 }
